@@ -63,6 +63,7 @@ namespace gatorLog {
 	//% blockId="gatorLog_begin" 
 	//% block="initialize gator:log"
 	export function begin(){
+        basic.showNumber(0)
 		basic.pause(2500)
 		serial.redirect(SerialPin.P15, SerialPin.P14, BaudRate.BaudRate9600)
 		pins.digitalWritePin(DigitalPin.P13, 1)
@@ -70,8 +71,11 @@ namespace gatorLog {
 		pins.digitalWritePin(DigitalPin.P13, 0)
 		basic.pause(100)
 		pins.digitalWritePin(DigitalPin.P13, 1)
-		serial.readUntil(writeReady)
+        basic.showNumber(1)
+        basic.pause(2500)
+        serial.readUntil(writeReady)
 		basic.pause(20)
+        basic.showNumber(2)
 		dummyFile()
 		return
 	}
